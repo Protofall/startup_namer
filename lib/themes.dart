@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 ThemeData themeLight = ThemeData.light().copyWith(
-  primaryColor: Colors.blue,
+  primaryColor: Colors.lightGreen,
   // backgroundColor: Colors.white,
   backgroundColor: Colors.black,
-  accentColor: Colors.blueAccent,
-  buttonColor: Colors.blue,
+  accentColor: Colors.lightGreenAccent,
+  buttonColor: Colors.lightGreen,
 );
 
 ThemeData themeDark = ThemeData.dark().copyWith(

@@ -118,12 +118,29 @@ class _RandomWordsState extends State<RandomWords> {
     );
   }
 
+  bool isSwitched = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Startup Name Generator'),
         actions: [
+          Center(child: Text(
+            'Light/Dark Mode',
+            textAlign: TextAlign.center,
+          )),
+          Switch(
+              value: isSwitched,
+              onChanged: (value){
+                setState(() {
+                  isSwitched = value;
+                  print(isSwitched);
+                });
+              },
+              // activeTrackColor: Colors.white,
+              activeColor: Colors.white,
+          ),
           IconButton(icon: Icon(Icons.list), onPressed: _pushSaved),
         ],
       ),
