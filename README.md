@@ -1,6 +1,14 @@
 # startup_namer
 
-A new Flutter application.
+A Flutter application that lazy-loads a bunch of random names, lets you favourite them and has a dark mode toggle
+
+## Important info
+
+The main files that you'll need to look at are
+- lib/themes.dart
+- lib/main.dart
+- lib/mobxstate.dart (Contains a command at the top to generate the "g" files)
+- pubspec.yaml
 
 ## Getting Started
 
