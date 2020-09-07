@@ -37,8 +37,8 @@ class MyApp extends StatelessWidget {
     return Observer(
         builder: (_) => new MaterialApp(
       title: 'Startup Name Generator',
-      theme: state.isDarkValue ? myThemes.themeLight : myThemes.themeDark,
-      darkTheme: myThemes.themeDark,
+      theme: state.isDarkValue ? myThemes.themeDark : myThemes.themeLight,
+      darkTheme: !state.isDarkValue ? myThemes.themeDark : myThemes.themeLight,
       home: RandomWords(),
       debugShowCheckedModeBanner: false,
     ));
