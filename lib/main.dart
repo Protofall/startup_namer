@@ -4,6 +4,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:startup_namer/state/mobxstate.dart';
 
 import 'themes.dart' as myThemes;
 
@@ -11,6 +13,7 @@ import 'themes.dart' as myThemes;
 // a 1-line function
 
 // void main() => runApp(MyApp());
+final MobxState state = MobxState();
 
 void main(){
   runApp(MyApp());
@@ -27,15 +30,18 @@ void main(){
 // body is the body and we use the center and text widgets to render
 // it in the middle of the screen
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+
+    return Observer(
+        builder: (_) => new MaterialApp(
       title: 'Startup Name Generator',
-      theme: myThemes.themeLight,
+      theme: state.isDarkValue ? myThemes.themeLight : myThemes.themeDark,
       darkTheme: myThemes.themeDark,
       home: RandomWords(),
       debugShowCheckedModeBanner: false,
-    );
+    ));
   }
 }
 
@@ -122,6 +128,7 @@ class _RandomWordsState extends State<RandomWords> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Startup Name Generator'),
@@ -135,6 +142,7 @@ class _RandomWordsState extends State<RandomWords> {
               onChanged: (value){
                 setState(() {
                   isSwitched = value;
+                  state.toggleDarkMode();
                   print(isSwitched);
                 });
               },
